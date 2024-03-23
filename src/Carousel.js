@@ -26,47 +26,44 @@ function Carousel() {
   }, [currentSlide]);
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <div
         id="default-carousel"
-        className="relative  overflow-hidden shadow-lg w-full"
+        className="relative overflow-hidden  w-full "
         data-carousel="static"
       >
-        <div className="relative h-80 md:h-96" data-carousel-inner>
+        <div
+          className="relative h-80 md:h-96 overflow-hidden"
+          data-carousel-inner
+        >
           {[img1, img2, img3].map((image, index) => (
             <div
               key={index}
-              className={`duration-700 ease-in-out ${
-                index === currentSlide ? "" : "hidden"
+              className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
               data-carousel-item
               onMouseEnter={() => setShowText(true)}
               onMouseLeave={() => setShowText(false)}
             >
-              <img
-                src={image}
-                className="object-cover w-full h-full"
-                alt={`Slide ${index + 1}`}
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${image})` }}
               />
               {showText && index === currentSlide && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                  <span className="text-white text-xl font-semibold">
-                    <div className="absolute p-5 inset-0 flex items-center justify-center bg-black bg-opacity-60">
-                      <div className="text-center text-white px-6 py-8 rounded-lg">
-                        <h2 className="text-3xl font-semibold mb-4">
-                          Trusted Accounting Services
-                        </h2>
-                        <p className="text-lg leading-relaxed">
-                          Welcome to Finactaxpro, your trusted partner for all
-                          your accounting needs. Our firm offers comprehensive
-                          financial solutions tailored to meet your specific
-                          requirements. With decades of experience and a
-                          dedication to excellence, we assure you that your
-                          finances are in capable hands.
-                        </p>
-                      </div>
-                    </div>
-                  </span>
+                  <div className="text-white px-6 py-8 rounded-lg text-center">
+                    <h2 className="text-3xl font-semibold mb-4">
+                      Trusted Accounting Services
+                    </h2>
+                    <p className="text-lg leading-relaxed">
+                      Welcome to Finactaxpro, your trusted partner for all your
+                      accounting needs. Our firm offers comprehensive financial
+                      solutions tailored to meet your specific requirements.
+                      With decades of experience and a dedication to excellence,
+                      we assure you that your finances are in capable hands.
+                    </p>
+                  </div>
                 </div>
               )}
             </div>

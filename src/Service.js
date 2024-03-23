@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Service = () => {
   return (
@@ -165,6 +165,12 @@ const Service = () => {
 export default Service;
 
 const ServiceCard = ({ icon, title, details }) => {
+  const [showFullDetails, setShowFullDetails] = useState(false);
+
+  const toggleDetails = () => {
+    setShowFullDetails(!showFullDetails);
+  };
+
   return (
     <>
       <div className="w-full px-4 md:w-1/2 lg:w-1/3 flex">
@@ -173,7 +179,15 @@ const ServiceCard = ({ icon, title, details }) => {
             {icon}
           </div>
           <h4 className="mb-[14px] text-xl font-semibold text-dark">{title}</h4>
-          <p className="text-body-color">{details}</p>
+          <p className="text-body-color">
+            {showFullDetails ? details : `${details.slice(0, 150)}...`}
+          </p>
+          <button
+            className="text-primary mt-2 focus:outline-none"
+            onClick={toggleDetails}
+          >
+            {showFullDetails ? "Read Less" : "Read More"}
+          </button>
         </div>
       </div>
     </>

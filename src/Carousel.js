@@ -9,18 +9,18 @@ function Carousel() {
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 2 ? 0 : prevSlide + 1));
-    setShowText(false); // Hide text on slide change
+    setShowText(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? 2 : prevSlide - 1));
-    setShowText(false); // Hide text on slide change
+    setShowText(false);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // Change the interval duration as needed (in milliseconds)
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);

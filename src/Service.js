@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Service = () => {
   return (
-    <section className="pb-12 pt-20  lg:pb-[90px] lg:pt-[120px]">
+    <section className="pb-12 pt-20  lg:pb-[90px] lg:pt-[120px]" id="Services">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
@@ -26,8 +26,7 @@ const Service = () => {
 
         <div className="-mx-4 flex flex-wrap">
           <ServiceCard
-            title=" Accounts & Outsourcing"
-            details="Improve your financial management with our accounting and bookkeeping services. Our skilled team specializes in navigating complex tax regulations, optimizing cash flow, ensuring compliance and accuracy in GST filings, managing tax deductions, and staying compliant with regulations. Streamline your financial processes with our expertise. Contact us today"
+            title="Accounts & Outsourcing"
             icon={
               <svg
                 width="36"
@@ -37,17 +36,39 @@ const Service = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.89195 14.625C10.9995 10.1252 13.769 7.875 18.1996 7.875C24.8458 7.875 25.6765 12.9375 28.9996 13.7812C31.2151 14.3439 33.1535 13.5002 34.815 11.25C33.7075 15.7498 30.9379 18 26.5073 18C19.8611 18 19.0304 12.9375 15.7073 12.0938C13.4918 11.5311 11.5535 12.3748 9.89195 14.625ZM1.58423 24.75C2.69174 20.2502 5.46132 18 9.89195 18C16.5381 18 17.3689 23.0625 20.692 23.9062C22.9075 24.4689 24.8458 23.6252 26.5073 21.375C25.3998 25.8748 22.6302 28.125 18.1996 28.125C11.5535 28.125 10.7227 23.0625 7.39963 22.2188C5.18405 21.6561 3.24576 22.4998 1.58423 24.75Z"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M10.5714 14.5714C12.4521 10.6668 16.3807 10.6668 18.2614 14.5714C20.1421 18.476 24.0707 18.476 25.9514 14.5714C27.8321 10.6668 31.7607 10.6668 33.6414 14.5714C32.0184 19.0477 28.6543 21.9999 25.9514 21.9999C22.2837 21.9999 21.2014 17.8801 18.2614 17.1429C15.3214 17.8801 14.2391 21.9999 10.5714 21.9999C6.90364 21.9999 5.82143 17.8801 2.88143 17.1429C-0.0585723 17.8801 -1.14078 21.9999 2.88143 21.9999C6.56142 21.9999 8.18431 17.3801 10.5714 14.5714ZM0 27.4286V2.57143C0 1.15155 1.15155 0 2.57143 0H33.4286C34.8485 0 36 1.15155 36 2.57143V27.4286C36 28.8485 34.8485 30 33.4286 30H2.57143C1.15155 30 0 28.8485 0 27.4286Z"
                   fill="white"
                 />
               </svg>
             }
+            details={`-  Account outsourcing & book keeping.
+            - Practice in direct & indirect taxes consulting.
+- MIS & business analysis.
+- Receivable & payable management.
+- GST return.
+- Income tax return.
+- TDS / TCS return.
+- Profession tax return.
+- GST annual return.
+- PF return.
+- ESIC return.`}
           />
+
           <ServiceCard
             title="Co-op society compliance & accounting"
-            details="Experience seamless Co-Op society compliance and accounting with our tailored services. We specialize in providing expert accounting and audit solutions aligned with Co-Op society bye laws. Trust us for maintaining society registers, facilitating smooth society registration processes, executing recovery plans, and providing legal support customized to your society's requirements. Contact us today for expert Co-Op society accounting and audit solutions."
+            details={`
+            - Co. Op. Society accounting & audit.
+            - Co. Op. housing society registers writing & meeting compliance.
+            - Co. Op. housing society registration.
+            - Co. Op. housing society elections.
+            - Co. Op. consultancy as per bye-laws.
+            - Maintains receipts communication.
+            - Recovery plan & execution.
+            - Handover activity builder/developer to members.
+            - Conveyance deed work.
+            - Legal support.`}
             icon={
               <svg
                 width="36"
@@ -78,7 +99,14 @@ const Service = () => {
           <ServiceCard
             title="Business of management consulting/CFO 
             services"
-            details="Elevate your business with our virtual CFO services and comprehensive management consulting. Our cost-effective solutions optimize your financial operations. Benefit from our expertise in business setup, tax planning, and budgeting to drive strategic growth. Contact us today to achieve sustainable success."
+            details={`- Virtual CFO services
+            - Cost accounting & cost management, cost audit & compliance.
+            - Business set up services
+            - Tax planning & budgets
+            - Project reports
+            - Internal audit
+            - Fixed asset audit
+            - Inventory audit`}
             icon={
               <svg
                 width="36"
@@ -100,7 +128,13 @@ const Service = () => {
           />
           <ServiceCard
             title="Efficient Registration Solutions"
-            details="Facilitate your business journey with our comprehensive registration services. We handle GST, PAN/TAN, import/export license, PF/ESIC, MSME, PTRC/PTEC, and shop act license registration. Our experts ensure timely compliance, allowing you to focus on your core operations with confidence. Contact us today to learn more."
+            details={`- GST registration
+            - PAN / TAN registration
+            - Import & export licence registration
+            - PF / ESIC registration
+            - MSME registration
+            - PTRC / PTEC registration
+            - Shop act license`}
             icon={
               <svg
                 width="36"
@@ -118,7 +152,9 @@ const Service = () => {
           />
           <ServiceCard
             title="Streamlined HR Solutions"
-            details="Empower your workforce with our tailored HR and administrative services. We handle payroll management, compliance, employee tax planning, and company salary structure work. Partner with us to optimize your HR and administrative operations. Contact us today."
+            details={`- HR & admin services
+            - Payroll management & compliance
+            - Employee tax planning & company salary structure work`}
             icon={
               <svg
                 width="36"
@@ -140,7 +176,8 @@ const Service = () => {
           />
           <ServiceCard
             title="Expert Company Formation & Legal Advisory"
-            details="Embark on your business journey confidently with our comprehensive company formation services. We handle all aspects of registration and ensure compliance with ROC regulations. Contact us today to take the first step towards achieving your business goals."
+            details={`- Company / LLP/ firms formation and ROC compliance
+            - Legal advice`}
             icon={
               <svg
                 width="36"
@@ -171,25 +208,39 @@ const ServiceCard = ({ icon, title, details }) => {
     setShowFullDetails(!showFullDetails);
   };
 
+  // Function to split details into bullet points
+  const renderBulletPoints = (details) => {
+    const bulletPoints = details
+      .split("\n")
+      .filter((point) => point.trim() !== "");
+    return (
+      <ul>
+        {bulletPoints.map((point, index) => (
+          <li key={index}>{point}</li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
-    <>
-      <div className="w-full px-4 md:w-1/2 lg:w-1/3 flex">
-        <div className="w-full mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg  md:px-7 xl:px-10 flex flex-col">
-          <div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary">
-            {icon}
-          </div>
-          <h4 className="mb-[14px] text-xl font-semibold text-dark">{title}</h4>
-          <p className="text-body-color">
-            {showFullDetails ? details : `${details.slice(0, 150)}...`}
-          </p>
-          <button
-            className="text-primary mt-2 focus:outline-none"
-            onClick={toggleDetails}
-          >
-            {showFullDetails ? "Read Less" : "Read More"}
-          </button>
+    <div className="w-full px-4 md:w-1/2 lg:w-1/3 flex">
+      <div className="w-full mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg  md:px-7 xl:px-10 flex flex-col">
+        <div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary">
+          {icon}
         </div>
+        <h4 className="mb-[14px] text-xl font-semibold text-dark">{title}</h4>
+        {showFullDetails ? (
+          renderBulletPoints(details)
+        ) : (
+          <p className="text-body-color">{details.slice(0, 150)}...</p>
+        )}
+        <button
+          className="text-primary mt-2 focus:outline-none"
+          onClick={toggleDetails}
+        >
+          {showFullDetails ? "Read Less" : "Read More"}
+        </button>
       </div>
-    </>
+    </div>
   );
 };

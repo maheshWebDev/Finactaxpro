@@ -1,30 +1,25 @@
-import About from "./About";
-import Accordion from "./Accordion";
-
-import Clients from "./Clients";
-
-import Contact from "./Contact";
-import Footer from "./Footer";
-
+import React from "react";
 import Navbar from "./Navbar";
+import Carousel from "./Carousel";
+import About from "./About";
 import Service from "./Service";
 import Team from "./Team";
-
-import Carousel from "./Carousel";
+import Clients from "./Clients";
+import Accordion from "./Accordion";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Carousel />
-      <Service />
-      <Accordion />
-      <Team />
-      <Contact />
-      <Clients />
       <About />
-
+      <Service />
+      <Team />
+      <Clients />
+      <Accordion />
+      <Contact />
       <Footer />
     </div>
   );

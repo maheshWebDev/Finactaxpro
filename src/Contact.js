@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { validateContactForm } from "./utils/formValidation";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    details: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({});
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormErrors({});
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateContactForm(formData);
+    if (Object.keys(errors).length === 0) {
+      // console.log("Form submitted:", formData);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        details: "",
+      });
+      setFormErrors({});
+      setSubmitSuccess(true);
+    } else {
+      setFormErrors(errors);
+      setSubmitSuccess(false);
+    }
+  };
+
   return (
     <>
       <section
-        className="relative z-10 overflow-hidden bg-white py-20  lg:py-[120px]"
+        className="relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]"
         id="Contact"
       >
         <div className="container">
@@ -43,9 +78,9 @@ const Contact = () => {
                       Our Location
                     </h4>
                     <p className="text-base text-body-color ">
-                      Row House No-04,Dreams Rhythm Co-Op Hsg Soc.Ltd,Near
-                      Mumbai-Pune Highway,Opp Talathi Office,Bavdhan
-                      Bk,Pune-411021
+                      Row House No-04, Dreams Rhythm Co-Op Hsg Soc.Ltd, Near
+                      Mumbai-Pune Highway, Opp Talathi Office, Bavdhan Bk,
+                      Pune-411021
                     </p>
                   </div>
                 </div>
@@ -85,7 +120,7 @@ const Contact = () => {
                       Phone Number
                     </h4>
                     <p className="text-base text-body-color ">
-                      +91-9850524322/+91-9730649059
+                      +91-9850524322 / +91-9730649059
                     </p>
                   </div>
                 </div>
@@ -117,36 +152,85 @@ const Contact = () => {
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
-              <div className="relative rounded-lg bg-white p-8 shadow-lg  sm:p-12">
-                <form>
+              <div className="relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
+                <form onSubmit={handleSubmit}>
                   <ContactInputBox
                     type="text"
                     name="name"
                     placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
+                  {formErrors.name && (
+                    <div
+                      class="p-4 my-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span class="font-medium">{formErrors.name}</span>
+                    </div>
+                  )}
                   <ContactInputBox
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
+                  {formErrors.email && (
+                    <div
+                      class="p-4 my-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span class="font-medium">{formErrors.email}</span>
+                    </div>
+                  )}
                   <ContactInputBox
-                    type="text"
+                    type="tel"
                     name="phone"
                     placeholder="Your Phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                   />
+                  {formErrors.phone && (
+                    <div
+                      class="p-4 my-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span class="font-medium">{formErrors.phone}</span>
+                    </div>
+                  )}
                   <ContactTextArea
                     row="6"
                     placeholder="Your Message"
                     name="details"
-                    defaultValue=""
+                    value={formData.details}
+                    onChange={handleChange}
                   />
-                  <div>
+                  {formErrors.details && (
+                    <div
+                      class="p-4 my-1 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                      role="alert"
+                    >
+                      <span class="font-medium">{formErrors.details}</span>
+                    </div>
+                  )}
+                  <div className="text-center">
                     <button
                       type="submit"
-                      className="w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90"
+                      className="w-full rounded border border-primary mt-3 bg-primary p-3 text-white transition hover:bg-opacity-90"
                     >
                       Send Message
                     </button>
+                    {submitSuccess && (
+                      <div
+                        class="p-4 my-1 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                        role="alert"
+                      >
+                        <p class="font-medium">Thank you for contacting us.</p>
+                        One of our colleagues will get back in touch with you
+                        soon!
+                      </div>
+                    )}
                   </div>
                 </form>
                 <div>
@@ -966,35 +1050,38 @@ const Contact = () => {
   );
 };
 
-export default Contact;
-
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
+const ContactTextArea = ({ row, placeholder, name, value, onChange }) => {
   return (
     <>
-      <div className="mb-6">
+      <div className="mt-6">
         <textarea
           rows={row}
           placeholder={placeholder}
           name={name}
-          className="w-full resize-none rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3  dark:text-dark-6"
-          defaultValue={defaultValue}
+          value={value}
+          onChange={onChange}
+          className="w-full resize-none rounded border border-stroke px-4 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-dark-3 dark:text-dark-6"
         />
       </div>
     </>
   );
 };
 
-const ContactInputBox = ({ type, placeholder, name }) => {
+const ContactInputBox = ({ type, placeholder, name, value, onChange }) => {
   return (
     <>
-      <div className="mb-6">
+      <div className="mt-6">
         <input
           type={type}
           placeholder={placeholder}
           name={name}
-          className="w-full rounded border border-stroke px-[14px] py-3 text-base text-body-color outline-none focus:border-primary dark:border-dark-3 "
+          value={value}
+          onChange={onChange}
+          className="w-full rounded border border-stroke px-4 py-3 text-sm text-body-color outline-none focus:border-primary dark:border-dark-3"
         />
       </div>
     </>
   );
 };
+
+export default Contact;

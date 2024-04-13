@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import logo from "./img/logo.png";
+import logo from "./img/logo.jpeg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="bg-white">
-      <div className="container mx-auto flex items-center justify-between px-4 py-5">
-        <div className="flex items-center">
-          <a href="/#" className="flex items-center">
-            <span className="text-2xl font-extrabold text-primary tracking-wide hidden lg:block">
-              Finactaxpro
-            </span>
-            <div class="flex items-center justify-center py-8 px-9 h-full bg-white rounded-3xl">
-              <img src="flaro-assets/logos/brands/logo-xxl.png" alt="" />
-            </div>
+      <div className="container mx-auto flex items-center justify-between ">
+        <div className=" max-w-full px-4">
+          <a href="/#" className="block w-full py-5">
+            <img src={logo} alt="logo" className="dark:hidden w-60" />
+            <img src={logo} alt="logo" className="hidden dark:block" />
           </a>
         </div>
+
         <div className="lg:hidden">
           <button
             onClick={() => setOpen(!open)}

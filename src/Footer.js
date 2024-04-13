@@ -1,13 +1,20 @@
 import React from "react";
-
+import logo from "./img/logo.jpeg";
 const Footer = () => {
   return (
-    <footer className=" py-12 lg:py-16">
+    <footer className=" py-12 lg:py-16 ">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="lg:col-span-2">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Finactaxpro - Your One-Stop Business Solution
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 flex flex-col items-center sm:flex-row sm:items-center sm:justify-center">
+            <img
+              src={logo}
+              alt="Finactaxpro Logo"
+              className="w-60 mb-2 sm:mb-0 sm:mr-2"
+            />
+
+            <span className="text-center">Your One-Stop Business Solution</span>
           </h2>
+
           <p className="text-base text-gray-600 mb-4">
             Count on Finactaxpro for all your business needs. From accounting
             and taxation to setup, compliance, and more, we've got you covered.

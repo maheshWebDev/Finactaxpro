@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import img1 from "./img/image2.jpg";
-import img2 from "./img/pexels-fauxels-3183197.jpg";
-import img3 from "./img/pexels-kampus-production-8441811.jpg";
+import img1 from "./img/DSC_1.JPG";
+import img2 from "./img/DSC_2.JPG";
+import img3 from "./img/DSC_6.JPG";
 
 function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -26,14 +26,14 @@ function Carousel() {
   }, [currentSlide]);
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative ">
       <div
         id="default-carousel"
         className="relative overflow-hidden  w-full "
         data-carousel="static"
       >
         <div
-          className="relative h-80 md:h-96 overflow-hidden"
+          className="relative h-96 md:h-96 overflow-hidden "
           data-carousel-inner
         >
           {[img1, img2, img3].map((image, index) => (
@@ -47,7 +47,7 @@ function Carousel() {
               onMouseLeave={() => setShowText(false)}
             >
               <div
-                className="w-full h-full bg-cover bg-center"
+                className="w-full h-full  bg-cover bg-center drop-shadow-sm"
                 style={{ backgroundImage: `url(${image})` }}
               />
               {showText && index === currentSlide && (

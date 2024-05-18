@@ -5,14 +5,16 @@ const Footer = () => {
     <footer className=" py-12 lg:py-16 ">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="lg:col-span-2">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2 flex flex-col items-center sm:flex-row sm:items-center sm:justify-center">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 flex flex-col items-center sm:flex-row sm:items-center sm:justify-center  text-primary">
             <img
               src={logo}
               alt="Finactaxpro Logo"
               className="w-60 mb-2 sm:mb-0 sm:mr-2"
             />
 
-            <span className="text-center">Your One-Stop Business Solution</span>
+            <span className="text-center  ">
+              Your One-Stop Business Solution
+            </span>
           </h2>
 
           <p className="text-base text-gray-600 mb-4">
@@ -82,12 +84,10 @@ const Footer = () => {
         </div>
         <div className="mt-8 border-t border-gray-200 pt-8 flex flex-col lg:flex-row items-center justify-between">
           <div className="text-center lg:text-left">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 ">
               &copy; 2024 Finactaxpro Services Bharam LLP
             </p>
-            <p className="text-sm text-gray-600">
-              +91-9850524322 / +91-9730649059
-            </p>
+            <p className="text-sm text-gray-600">+91-9356247142</p>
           </div>
           <div className="mt-4 lg:mt-0 space-x-4 flex items-center justify-center lg:justify-end">
             <SocialLink

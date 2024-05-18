@@ -2,6 +2,7 @@ import React from "react";
 import vishal from "./img/vishal.jpeg";
 import ketan from "./img/ketan.jpeg";
 import kavita from "./img/kavita.jpeg";
+import Kirti from "./img/DSC_5.JPG";
 const Team = () => {
   return (
     <section className="pb-10 pt-20 lg:pb-20 lg:pt-[120px]" id="Team">
@@ -32,13 +33,13 @@ const Team = () => {
             degree="(M. Com, CWA (Inter), GDC & A)"
             style={{ height: "100%" }}
           />
-          {/* <TeamCard
+          <TeamCard
             name="Kirti Bharam"
             profession="Partner & Member Advisory Board "
-            imageSrc={vishal}
+            imageSrc={Kirti}
             degree="(M. Com, ICWA/CMA)"
-            style={{ height: "100%" }} 
-          /> */}
+            style={{ height: "100%" }}
+          />
           <TeamCard
             name="Kavita Joshi"
             profession="Associates"

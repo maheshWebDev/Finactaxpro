@@ -26,14 +26,14 @@ function Carousel() {
   }, [currentSlide]);
 
   return (
-    <div className="w-full relative ">
+    <div className="w-full relative">
       <div
         id="default-carousel"
-        className="relative overflow-hidden  w-full "
+        className="relative overflow-hidden w-full"
         data-carousel="static"
       >
         <div
-          className="relative h-96 md:h-96 overflow-hidden "
+          className="relative h-96 md:h-96 overflow-hidden"
           data-carousel-inner
         >
           {[img1, img2, img3].map((image, index) => (
@@ -47,7 +47,7 @@ function Carousel() {
               onMouseLeave={() => setShowText(false)}
             >
               <div
-                className="w-full h-full  bg-cover bg-center drop-shadow-sm"
+                className="w-full h-full bg-cover bg-center drop-shadow-sm"
                 style={{ backgroundImage: `url(${image})` }}
               />
               {showText && index === currentSlide && (
@@ -58,10 +58,10 @@ function Carousel() {
                     </h2>
                     <p className="text-lg leading-relaxed">
                       Welcome to Finactaxpro, your trusted partner for all your
-                      accounting needs. Our firm offers comprehensive financial
-                      solutions tailored to meet your specific requirements.
-                      With decades of experience and a dedication to excellence,
-                      we assure you that your finances are in capable hands.
+                      accounting needs. We offer comprehensive financial
+                      solutions tailored to your specific requirements. With
+                      decades of experience and a dedication to excellence, your
+                      finances are in capable hands with us.
                     </p>
                   </div>
                 </div>

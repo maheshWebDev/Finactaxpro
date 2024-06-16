@@ -23,46 +23,45 @@ const About = () => {
                   Empowering Businesses Through Comprehensive Financial
                   Solutions
                 </h2>
-                <p className="mb-5 text-base text-body-color ">
-                  At Finactaxpro Services Bharam LLP, we are committed to
-                  providing a comprehensive range of financial solutions to
-                  businesses. Our services include account outsourcing, tax
+                {/* <p className="mb-5 text-base text-body-color ">
+                  At Finactaxpro Services Bharam LLP, we offer comprehensive
+                  financial solutions including account outsourcing, tax
                   analysis, compliance work, cost accounting, business
-                  formation, payroll management, GST and taxation advisory
-                  services, and more. Our mission is to empower our clients to
-                  achieve their financial goals by delivering reliable, timely,
-                  and strategic accounting and taxation solutions. We are
-                  dedicated to building long-term relationships with our clients
-                  based on trust, professionalism, and exceptional service.
-                </p>
-                <p className="mb-8 text-base text-body-color ">
-                  Our team of experts comprises highly skilled professionals,
-                  including CMA, GDC&A, CS, lawyers, and chartered accountants,
-                  who are committed to transforming business and co-operative
-                  society goals into reality. As a sister concern of Bharam
-                  Associates, a pioneer in co-operative society accounting,
-                  compliance work, and tax consultancy with over 8 years of
-                  experience, we bring a wealth of expertise to our clients.
-                </p>
-                <p className="mb-5 text-base text-body-color ">
-                  We pride ourselves on our personalized service, compliance
-                  excellence, and proactive guidance. We tailor our services to
-                  meet the specific needs of our clients, ensuring alignment
-                  with their goals. Our team stays updated on industry trends
-                  and regulations to provide the best possible service,
-                  leveraging cutting-edge technology to automate tasks, reduce
-                  errors, and enhance efficiency. Our services are
-                  cost-effective, reducing operational costs while maintaining
-                  high-quality services. We prioritize the security and
-                  confidentiality of our clients' financial data, ensuring it is
-                  protected at all times.
-                </p>
-                <p className="mb-8 text-base text-body-color ">
-                  Beyond traditional services, we provide proactive advice to
-                  help our clients make informed financial decisions and achieve
-                  their long-term objectives. We are dedicated to empowering
-                  businesses to achieve success through our expertise,
-                  commitment to excellence, and personalized service.
+                  formation, payroll management, GST, and taxation advisory
+                  services. As a sister concern of Bharam Associates, with over
+                  8 years of experience in co-operative society accounting and
+                  tax consultancy, we bring extensive expertise to our clients.
+                  Our team of CMAs, GDC&As, CSs, lawyers, and chartered
+                  accountants provides personalized service and proactive
+                  guidance. Our mission is to build long-term, trust-based
+                  relationships by staying updated with industry practices and
+                  delivering reliable, timely, cost-effective, and strategic
+                  financial solutions.
+                </p> */}
+                <p className="text-base leading-relaxed space-y-4 mb-5 text-body-color">
+                  At Finactaxpro Services Bharam LLP, we offer a comprehensive
+                  range of financial solutions to meet diverse client needs:
+                  <div className="w-full p-3">
+                    <ul className="space-y-3">
+                      <ListItem text={"Account outsourcing"} />
+                      <ListItem text={"Tax analysis"} />
+                      <ListItem text={"Compliance work"} />
+                      <ListItem text={"Cost accounting"} />
+                      <ListItem text={"Business formation"} />
+                      <ListItem text={"Payroll management"} />
+                      <ListItem text={"GST"} />
+                      <ListItem text={"Taxation advisory services"} />
+                    </ul>
+                  </div>
+                  As a sister concern of Bharam Associates, with over 8 years of
+                  experience in co-operative society accounting and tax
+                  consultancy, we bring extensive expertise to our clients. Our
+                  team of CMAs, GDC&As, CSs, lawyers, and chartered accountants
+                  provides personalized service and proactive guidance. Our
+                  mission is to build long-term, trust-based relationships by
+                  staying updated with industry practices and delivering
+                  reliable, timely, cost-effective, and strategic financial
+                  solutions.
                 </p>
               </div>
             </div>
@@ -671,6 +670,39 @@ const About = () => {
         </div>
       </section>
     </>
+  );
+};
+
+const ListItem = ({ text }) => {
+  return (
+    <li className="flex text-base text-body-color ">
+      <span className="mr-2.5 mt-0.5 text-primary">
+        <svg
+          width={20}
+          height={20}
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_980_24852)">
+            <path
+              d="M10 0.5625C4.78125 0.5625 0.5625 4.78125 0.5625 10C0.5625 15.2188 4.78125 19.4688 10 19.4688C15.2188 19.4688 19.4688 15.2188 19.4688 10C19.4688 4.78125 15.2188 0.5625 10 0.5625ZM10 18.0625C5.5625 18.0625 1.96875 14.4375 1.96875 10C1.96875 5.5625 5.5625 1.96875 10 1.96875C14.4375 1.96875 18.0625 5.59375 18.0625 10.0312C18.0625 14.4375 14.4375 18.0625 10 18.0625Z"
+              fill="currentColor"
+            />
+            <path
+              d="M12.6875 7.09375L8.96875 10.7188L7.28125 9.0625C7 8.78125 6.5625 8.8125 6.28125 9.0625C6 9.34375 6.03125 9.78125 6.28125 10.0625L8.28125 12C8.46875 12.1875 8.71875 12.2813 8.96875 12.2813C9.21875 12.2813 9.46875 12.1875 9.65625 12L13.6875 8.125C13.9688 7.84375 13.9688 7.40625 13.6875 7.125C13.4063 6.84375 12.9688 6.84375 12.6875 7.09375Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_980_24852">
+              <rect width={20} height={20} fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </span>
+      {text}
+    </li>
   );
 };
 

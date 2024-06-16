@@ -43,32 +43,35 @@ const Service = () => {
                 />
               </svg>
             }
-            details={`-  Account outsourcing & book keeping.
-            - Practice in direct & indirect taxes consulting.
-- MIS & business analysis.
-- Receivable & payable management.
-- GST return.
-- Income tax return.
-- TDS / TCS return.
-- Profession tax return.
-- GST annual return.
-- PF return.
-- ESIC return.`}
+            details={[
+              "Account outsourcing & book keeping.",
+              "Practice in direct & indirect taxes consulting.",
+              "MIS & business analysis.",
+              "Receivable & payable management.",
+              "GST return.",
+              "Income tax return.",
+              "TDS / TCS return.",
+              "Profession tax return.",
+              "GST annual return.",
+              "PF return.",
+              "ESIC return.",
+            ]}
           />
 
           <ServiceCard
             title="Co-op society compliance & accounting"
-            details={`
-            - Co. Op. Society accounting & audit.
-            - Co. Op. housing society registers writing & meeting compliance.
-            - Co. Op. housing society registration.
-            - Co. Op. housing society elections.
-            - Co. Op. consultancy as per bye-laws.
-            - Maintains receipts communication.
-            - Recovery plan & execution.
-            - Handover activity builder/developer to members.
-            - Conveyance deed work.
-            - Legal support.`}
+            details={[
+              "Co. Op. Society accounting & audit.",
+              "Co. Op. housing society registers writing & meeting compliance.",
+              "Co. Op. housing society registration.",
+              "Co. Op. housing society elections.",
+              "Co. Op. consultancy as per bye-laws.",
+              "Maintains receipts communication.",
+              "Recovery plan & execution.",
+              "Handover activity builder/developer to members.",
+              "Conveyance deed work.",
+              "Legal support.",
+            ]}
             icon={
               <svg
                 width="36"
@@ -99,14 +102,16 @@ const Service = () => {
           <ServiceCard
             title="Business of management consulting/CFO 
             services"
-            details={`- Virtual CFO services
-            - Cost accounting & cost management, cost audit & compliance.
-            - Business set up services
-            - Tax planning & budgets
-            - Project reports
-            - Internal audit
-            - Fixed asset audit
-            - Inventory audit`}
+            details={[
+              "Virtual CFO services",
+              "Cost accounting & cost management, cost audit & compliance.",
+              "Business set up services",
+              "Tax planning & budgets",
+              "Project reports",
+              "Internal audit",
+              "Fixed asset audit",
+              "Inventory audit",
+            ]}
             icon={
               <svg
                 width="36"
@@ -128,13 +133,15 @@ const Service = () => {
           />
           <ServiceCard
             title="Efficient Registration Solutions"
-            details={`- GST registration
-            - PAN / TAN registration
-            - Import & export licence registration
-            - PF / ESIC registration
-            - MSME registration
-            - PTRC / PTEC registration
-            - Shop act license`}
+            details={[
+              "GST registration",
+              "PAN / TAN registration",
+              "Import & export licence registration",
+              "PF / ESIC registration",
+              "MSME registration",
+              "PTRC / PTEC registration",
+              "Shop act license",
+            ]}
             icon={
               <svg
                 width="36"
@@ -152,9 +159,11 @@ const Service = () => {
           />
           <ServiceCard
             title="Streamlined HR Solutions"
-            details={`- HR & admin services
-            - Payroll management & compliance
-            - Employee tax planning & company salary structure work`}
+            details={[
+              "HR & admin services",
+              "Payroll management & compliance",
+              "Employee tax planning & company salary structure work",
+            ]}
             icon={
               <svg
                 width="36"
@@ -176,8 +185,10 @@ const Service = () => {
           />
           <ServiceCard
             title="Expert Company Formation & Legal Advisory"
-            details={`- Company / LLP/ firms formation and ROC compliance
-            - Legal advice`}
+            details={[
+              "Company / LLP/ firms formation and ROC compliance",
+              "Legal advice",
+            ]}
             icon={
               <svg
                 width="36"
@@ -199,48 +210,70 @@ const Service = () => {
   );
 };
 
-export default Service;
-
 const ServiceCard = ({ icon, title, details }) => {
-  const [showFullDetails, setShowFullDetails] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleDetails = () => {
-    setShowFullDetails(!showFullDetails);
-  };
-
-  // Function to split details into bullet points
-  const renderBulletPoints = (details) => {
-    const bulletPoints = details
-      .split("\n")
-      .filter((point) => point.trim() !== "");
-    return (
-      <ul>
-        {bulletPoints.map((point, index) => (
-          <li key={index}>{point}</li>
-        ))}
-      </ul>
-    );
-  };
+  // Determine how many details to show
+  const detailsToShow = isExpanded ? details : details.slice(0, 2); // Show only the first 2 details when collapsed
 
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3 flex">
-      <div className="w-full mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg  md:px-7 xl:px-10 flex flex-col">
+      <div className="w-full mb-9 rounded-[20px] bg-white p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 flex flex-col">
         <div className="mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary">
           {icon}
         </div>
         <h4 className="mb-[14px] text-xl font-semibold text-dark">{title}</h4>
-        {showFullDetails ? (
-          renderBulletPoints(details)
-        ) : (
-          <p className="text-body-color">{details.slice(0, 150)}...</p>
-        )}
+
+        <div className="w-full">
+          <ul className="space-y-3">
+            {detailsToShow.map((detail, index) => (
+              <ListItem key={index} text={detail} />
+            ))}
+          </ul>
+        </div>
+
         <button
-          className="text-primary mt-2 focus:outline-none"
-          onClick={toggleDetails}
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-4 text-blue-500 focus:outline-none"
         >
-          {showFullDetails ? "Read Less" : "Read More"}
+          {isExpanded ? "Read Less" : "Read More"}
         </button>
       </div>
     </div>
   );
 };
+
+const ListItem = ({ text }) => {
+  return (
+    <li className="flex text-base text-body-color ">
+      <span className="mr-2.5 mt-0.5 text-primary">
+        <svg
+          width={20}
+          height={20}
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_980_24852)">
+            <path
+              d="M10 0.5625C4.78125 0.5625 0.5625 4.78125 0.5625 10C0.5625 15.2188 4.78125 19.4688 10 19.4688C15.2188 19.4688 19.4688 15.2188 19.4688 10C19.4688 4.78125 15.2188 0.5625 10 0.5625ZM10 18.0625C5.5625 18.0625 1.96875 14.4375 1.96875 10C1.96875 5.5625 5.5625 1.96875 10 1.96875C14.4375 1.96875 18.0625 5.59375 18.0625 10.0312C18.0625 14.4375 14.4375 18.0625 10 18.0625Z"
+              fill="currentColor"
+            />
+            <path
+              d="M12.6875 7.09375L8.96875 10.7188L7.28125 9.0625C7 8.78125 6.5625 8.8125 6.28125 9.0625C6 9.34375 6.03125 9.78125 6.28125 10.0625L8.28125 12C8.46875 12.1875 8.71875 12.2813 8.96875 12.2813C9.21875 12.2813 9.46875 12.1875 9.65625 12L13.6875 8.125C13.9688 7.84375 13.9688 7.40625 13.6875 7.125C13.4063 6.84375 12.9688 6.84375 12.6875 7.09375Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_980_24852">
+              <rect width={20} height={20} fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </span>
+      {text}
+    </li>
+  );
+};
+
+export default Service;
